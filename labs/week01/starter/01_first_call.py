@@ -43,7 +43,12 @@ def main() -> int:
         #     temperature=0.0
         #     max_tokens=200
         #   Assign the result to `reply`.
-        reply = None
+        reply = client.chat.completions.create(
+            model=SMALL.name,
+            messages=[{"role": "user", "content": QUESTION}],
+            temperature=0.0,
+            max_tokens=200,
+            )
 
         elapsed = time.perf_counter() - started
 
